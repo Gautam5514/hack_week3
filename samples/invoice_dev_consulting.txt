@@ -1,0 +1,33 @@
+INVOICE #INV-2026-9481
+=====================================================
+ISSUED BY:
+Apex Software Architecture LLC
+San Francisco, CA 94107
+Tax ID / EIN: XX-XXX4910
+
+BILLED TO (CONFIDENTIAL CLIENT):
+FinTech Innovations Group Inc.
+Project: Core Microservices & Real-Time Settlement Engine
+Contract: Independent Contractor Agreement #882-B (Strict NDA)
+
+INVOICE DATE: 2026-10-01
+DUE DATE:     2026-10-15
+PAYMENT TERMS: Net 14
+
+LINE ITEMS:
+-----------------------------------------------------
+1. Senior Backend Architecture (Sprint 14)
+   Qty: 40 hrs @ $150.00/hr               $6,000.00
+2. Distributed Database Migration Optimization
+   Qty: 20 hrs @ $150.00/hr               $3,000.00
+3. Security Audit & Zero-Trust Review
+   Qty: 10 hrs @ $150.00/hr               $1,500.00
+-----------------------------------------------------
+SUBTOTAL:                                $10,500.00
+DISCOUNT:                                     $0.00
+TAX / VAT (0.00% Exempt B2B):                 $0.00
+GRAND TOTAL DUE:                         $10,500.00
+
+PAYMENT METHOD: Wire Transfer / ACH Direct Deposit
+Routing: XXXXXX482  Account: XXXXXX9918
+Status: Paid in Full (2026-10-08)

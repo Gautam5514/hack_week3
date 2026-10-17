@@ -1,0 +1,24 @@
+Apple Store - Union Square
+300 Post St, San Francisco, CA 94108
+Order / Receipt Number: W9928104812
+Date: 2026-10-10  11:15 AM
+Specialist: Alex R.
+
+Purchased Items:
+------------------------------------------------------------------
+1  16-inch MacBook Pro - Space Black                             $3,499.00
+   Part No: MX2V3LL/A
+   Apple M4 Max chip with 14-core CPU, 32-core GPU
+   36GB Unified Memory, 1TB SSD Storage
+1  AppleCare+ for 16-inch MacBook Pro                              $399.00
+1  Thunderbolt 4 Pro Cable (1.8 m)                                  $69.00
+------------------------------------------------------------------
+Subtotal:                                                        $3,967.00
+Sales Tax (8.625%):                                                $342.15
+------------------------------------------------------------------
+TOTAL CHARGED:                                                   $4,309.15
+
+Payment Method: American Express (Card ending in 1004)
+Authorization Code: 088491
+Business Purpose: Primary engineering workstation & local AI inference laptop
+Tax Code: Section 179 Eligible Capital Equipment Expense

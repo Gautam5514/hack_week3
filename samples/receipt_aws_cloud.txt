@@ -1,0 +1,23 @@
+Amazon Web Services, Inc.
+P.O. Box 84023, Seattle, WA 98124-8423
+Tax Invoice #INV-AWS-2026-771920
+
+Account Number: 9481-2201-9981
+Billing Period: September 1, 2026 - September 30, 2026
+Date Issued: October 3, 2026
+
+Summary of Charges:
+----------------------------------------------------------------------
+Amazon Elastic Compute Cloud (EC2) - c6i.2xlarge us-west-2     $184.20
+Amazon Simple Storage Service (S3) - Standard Storage Tier       $32.40
+Amazon Relational Database Service (RDS) - PostgreSQL Multi-AZ  $112.50
+AWS Lambda & API Gateway Requests                                $18.90
+Data Transfer Out & CloudFront CDN                               $24.80
+----------------------------------------------------------------------
+Subtotal:                                                       $372.80
+Estimated US Sales Tax (8.5%):                                   $31.69
+----------------------------------------------------------------------
+TOTAL CHARGED:                                                  $404.49
+
+Paid via Visa Card ending in *8821 on 2026-10-03.
+Transaction Reference: AWS-AUTH-991823-OK

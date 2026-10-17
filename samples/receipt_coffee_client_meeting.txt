@@ -1,0 +1,25 @@
+STARBUCKS STORE #10492
+101 Market Street, San Francisco, CA
+Tel: (415) 555-0199
+
+Merchant ID: 881029192
+Receipt #SB-2026-44019
+Date: 2026-10-09  02:45 PM
+Server: Maya J.
+
+Order Details:
+---------------------------------------------
+1 Grande Caramel Macchiato              $5.85
+1 Venti Iced Cold Brew w/ Oat Milk      $6.25
+1 Butter Croissant                      $4.25
+1 Turkey Bacon & Egg White Sandwich     $6.45
+---------------------------------------------
+Subtotal:                              $22.80
+Tax (8.625%):                           $1.97
+Tip:                                    $4.00
+---------------------------------------------
+TOTAL:                                 $28.77
+
+Payment Type: Apple Pay (Mastercard *4410)
+Client Project Discussion: Q4 Sprint Planning Meeting
+Note for Tax: 50% Statutory Deductible Business Meal

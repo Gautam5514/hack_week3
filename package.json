@@ -1,0 +1,39 @@
+{
+  "name": "ledgerzero-ai",
+  "version": "1.2.0",
+  "description": "100% Local, Privacy-First AI Invoice, Receipt & Tax Sorter for Freelancers powered by Open-Weight Models (Gemma 2, Llama 3.2, Qwen 2.5)",
+  "main": "server.js",
+  "bin": {
+    "ledgerzero": "./cli.js"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node tests/test_extraction.js && node tests/test_categorizer.js && node tests/test_industry.js && node tests/test_edge_cases.js",
+    "test:industry": "node tests/test_industry.js",
+    "test:edge": "node tests/test_edge_cases.js",
+    "cli": "node cli.js"
+  },
+  "keywords": [
+    "open-source-ai",
+    "gemma",
+    "gemma2",
+    "llama3",
+    "qwen",
+    "ollama",
+    "receipt-sorter",
+    "invoice-parser",
+    "tax-categorizer",
+    "freelance-tools",
+    "side-hustle",
+    "privacy-first",
+    "devchallenge",
+    "hf26challenge"
+  ],
+  "author": "Gautam Pandit",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5"
+  }
+}

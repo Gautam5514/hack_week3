@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LedgerZero AI — 100% Local Invoice & Receipt Sorter for Freelancers</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Top Navigation -->
+  <header class="navbar">
+    <div class="nav-left">
+      <div class="logo-box">
+        <span class="logo-icon">⚡</span>
+      </div>
+      <div>
+        <div class="brand-title">LedgerZero <span class="badge-ai">AI</span></div>
+        <div class="brand-tagline">100% Local • Air-Gapped Financial Intelligence for Freelancers</div>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <div class="airgap-badge" id="airgapBadge">
+        <span class="pulse-dot"></span>
+        <span id="airgapText">Air-Gapped Local Inference</span>
+      </div>
+      <button class="btn btn-outline" id="seedBtn">⚡ Load Sample Invoices</button>
+      <button class="btn btn-secondary" id="scheduleCBtn">📋 IRS Schedule C Form</button>
+      <a href="/api/export/audit-pack" target="_blank" class="btn btn-secondary">🖨️ Audit Pack</a>
+      <a href="/api/export/csv" class="btn btn-primary" download>📥 Export CSV</a>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    <!-- Top Value Proposition & Metrics Hero -->
+    <section class="metrics-grid">
+      <div class="card metric-card">
+        <div class="metric-label">Total Documented Expenses</div>
+        <div class="metric-val" id="totalSpentVal">$0.00</div>
+        <div class="metric-sub" id="docCountVal">0 receipts & invoices logged</div>
+      </div>
+
+      <div class="card metric-card highlight-green">
+        <div class="metric-label">Tax-Deductible Total</div>
+        <div class="metric-val text-green" id="deductibleVal">$0.00</div>
+        <div class="metric-sub">IRS Schedule C allowable write-offs</div>
+      </div>
+
+      <div class="card metric-card highlight-gold">
+        <div class="metric-label">Est. Tax Savings (25% Bracket)</div>
+        <div class="metric-val text-gold" id="taxSavingsVal">$0.00</div>
+        <div class="metric-sub">Direct cash returned to your pocket</div>
+      </div>
+
+      <div class="card metric-card highlight-cyan">
+        <div class="metric-label">Cloud API Dollars Saved</div>
+        <div class="metric-val text-cyan" id="apiSavedVal">$0.00</div>
+        <div class="metric-sub">100% open-weight model / $0 token fees</div>
+      </div>
+    </section>
+
+    <!-- Two-Column Workspace -->
+    <div class="workspace-grid">
+      <!-- Left Column: Upload & Ingestion -->
+      <section class="upload-section">
+        <div class="card">
+          <div class="card-header">
+            <h3>📥 Ingest Invoice / Receipt</h3>
+            <span class="badge-model" id="activeModelLabel">Model: Gemma 2 / Llama 3.2</span>
+          </div>
+
+          <!-- Drag and Drop Zone -->
+          <div class="dropzone" id="dropzone">
+            <div class="dropzone-icon">📄</div>
+            <div class="dropzone-text"><strong>Drag & Drop</strong> invoice/receipt text or images here</div>
+            <div class="dropzone-sub">Supports .txt, .pdf, .png, .jpg, or paste raw text below</div>
+            <input type="file" id="fileInput" class="file-input" accept=".txt,.pdf,.csv,.json,.log,.png,.jpg,.jpeg,.webp">
+            <button class="btn btn-secondary btn-sm" onclick="document.getElementById('fileInput').click()">Browse Local Files</button>
+          </div>
+
+          <!-- Image Preview (if image uploaded) -->
+          <div id="imagePreviewContainer" class="image-preview-container" style="display: none;">
+            <img id="imagePreview" src="" alt="Receipt Preview">
+            <button class="btn-remove-image" id="removeImageBtn" title="Remove image">&times;</button>
+          </div>
+
+          <!-- Manual / Pasted Text Box -->
+          <div class="paste-box">
+            <label for="rawTextInput">Or paste invoice/receipt text directly:</label>
+            <textarea id="rawTextInput" placeholder="e.g. 
+INVOICE #INV-2026-884
+From: AWS Amazon Web Services
+Date: 2026-10-12
+EC2 & S3 Cloud Infrastructure: $148.50
+Total: $148.50" rows="5"></textarea>
+            
+            <div class="action-bar">
+              <select id="modelSelector" class="form-select">
+                <option value="auto">Auto (Ollama Default)</option>
+                <option value="gemma2:2b">Gemma 2 (2B - Google Open-Weight)</option>
+                <option value="gemma2:9b">Gemma 2 (9B - Google High-Accuracy)</option>
+                <option value="llama3.2:latest">Llama 3.2 (Meta Open-Weight)</option>
+                <option value="qwen2.5:7b">Qwen 2.5 (Alibaba Open-Weight)</option>
+                <option value="mistral:7b">Mistral 7B</option>
+                <option value="heuristic">Instant Heuristic Engine (< 5ms)</option>
+              </select>
+              <button class="btn btn-primary" id="processBtn">⚡ Run Local AI Agent</button>
+            </div>
+          </div>
+
+          <!-- Live Agent Processing Pipeline Status -->
+          <div class="agent-stepper" id="agentStepper" style="display: none;">
+            <div class="stepper-title">🤖 Local Agent Pipeline in Progress:</div>
+            <div class="step-item" id="step1"><span class="step-bullet">1</span> Ingesting raw document bytes locally</div>
+            <div class="step-item" id="step2"><span class="step-bullet">2</span> Open-weight LLM structured entity extraction</div>
+            <div class="step-item" id="step3"><span class="step-bullet">3</span> IRS Schedule C tax rule mapping</div>
+            <div class="step-item" id="step4"><span class="step-bullet">4</span> Anti-duplicate & IRS audit check</div>
+          </div>
+        </div>
+
+        <!-- Privacy & Local Innovation Callout -->
+        <div class="card privacy-card">
+          <div class="privacy-header">
+            <span class="lock-icon">🔒</span>
+            <h4>Why Open-Source AI Matters Here</h4>
+          </div>
+          <p>
+            Client NDAs and tax privacy laws forbid leaking proprietary client names, billing rates, and bank statements to cloud AI APIs. 
+            <strong>LedgerZero AI</strong> runs entirely on your local machine using open weights (Gemma 2 / Llama 3.2 / Qwen 2.5).
+          </p>
+          <ul class="benefit-list">
+            <li>✅ <strong>Zero Data Leakage:</strong> Invoices never leave your computer.</li>
+            <li>✅ <strong>Zero Token Metering:</strong> Process 10,000 receipts for $0.00.</li>
+            <li>✅ <strong>Full Offline Functionality:</strong> Works on planes or remote coffee shops.</li>
+            <li>✅ <strong>Gemma 2 & Llama 3.2:</strong> Ultra-fast quantized local inference.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Right Column: Processed Ledger & Tax Deductions -->
+      <section class="ledger-section">
+        <!-- Interactive Spend & Deduction SVG Chart -->
+        <div class="card chart-card">
+          <div class="card-header">
+            <h4>📊 Deduction Analytics by Category</h4>
+            <span class="badge-tag">Visual Tax Breakdown</span>
+          </div>
+          <div class="chart-container" id="chartContainer">
+            <svg id="categoryChartSvg" viewBox="0 0 700 160" preserveAspectRatio="none">
+              <!-- Dynamically populated SVG bars -->
+            </svg>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>📊 Processed Tax Ledger</h3>
+            <div class="search-filter-box">
+              <input type="text" id="searchInput" placeholder="Search vendor or invoice #..." class="input-search">
+              <select id="categoryFilter" class="form-select form-select-sm">
+                <option value="">All Categories</option>
+                <option value="Software & SaaS Subscriptions">Software & SaaS</option>
+                <option value="Equipment & Hardware">Equipment & Hardware</option>
+                <option value="Contract Labor & Subcontractors">Contract Labor</option>
+                <option value="Meals & Client Entertainment">Meals (50% deductible)</option>
+                <option value="Travel & Transportation">Travel</option>
+                <option value="Office Supplies & Rent">Office Supplies & Rent</option>
+                <option value="Advertising & Marketing">Advertising</option>
+                <option value="Legal & Professional Services">Legal & Professional</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Document Table -->
+          <div class="table-container">
+            <table class="ledger-table" id="ledgerTable">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Vendor / Merchant</th>
+                  <th>Schedule C Category</th>
+                  <th>Total</th>
+                  <th>Deductible</th>
+                  <th>Est. Savings</th>
+                  <th>Audit Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+            <div class="empty-state" id="emptyState">
+              <div class="empty-icon">📁</div>
+              <p>No documents processed yet.</p>
+              <button class="btn btn-outline btn-sm" onclick="document.getElementById('seedBtn').click()">Load Realistic Samples</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tax Breakdown Summary Card -->
+        <div class="card summary-card">
+          <div class="card-header">
+            <h4>📋 Schedule C Tax Summary (IRS Form 1040)</h4>
+            <button class="btn btn-outline btn-sm" id="viewJsonSummaryBtn">View JSON Summary</button>
+          </div>
+          <div id="categoryBreakdown" class="category-breakdown-list">
+            <!-- Dynamically populated category chips -->
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- IRS Schedule C Form 1040 Modal -->
+  <div class="modal-backdrop" id="scheduleCModal" style="display: none;">
+    <div class="modal-content modal-large">
+      <div class="modal-header">
+        <div>
+          <h3>IRS Form 1040 Schedule C Worksheet</h3>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">
+            Official Line-Item Profit & Loss Tax Deduction Breakdown (Tax Year 2026)
+          </p>
+        </div>
+        <button class="close-btn" id="closeScheduleCBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Schedule C Line</th>
+              <th>Expense Category</th>
+              <th>Count</th>
+              <th>Gross Amount</th>
+              <th>Allowable Deduction</th>
+            </tr>
+          </thead>
+          <tbody id="scheduleCTableBody">
+            <!-- Dynamically populated lines -->
+          </tbody>
+        </table>
+        
+        <div class="schedule-summary-box">
+          <div class="sched-stat">
+            <span class="sched-stat-label">Total Allowable Write-Offs:</span>
+            <span class="sched-stat-val text-green" id="schedTotalDeductible">$0.00</span>
+          </div>
+          <div class="sched-stat">
+            <span class="sched-stat-label">Est. Federal + State Tax Cash Saved (25%):</span>
+            <span class="sched-stat-val text-gold" id="schedCashSaved">$0.00</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" id="closeScheduleCFooterBtn">Close</button>
+        <a href="/api/export/audit-pack" target="_blank" class="btn btn-primary">🖨️ Print Official Audit Pack</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Document Modal -->
+  <div class="modal-backdrop" id="editModal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Edit Document Record</h3>
+        <button class="close-btn" id="closeModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="editForm">
+          <input type="hidden" id="editDocId">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Vendor / Merchant</label>
+              <input type="text" id="editVendor" required>
+            </div>
+            <div class="form-group">
+              <label>Date (YYYY-MM-DD)</label>
+              <input type="date" id="editDate" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Total Amount ($)</label>
+              <input type="number" step="0.01" id="editTotal" required>
+            </div>
+            <div class="form-group">
+              <label>Invoice Number</label>
+              <input type="text" id="editInvoiceNumber">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Tax Category (IRS Schedule C)</label>
+            <select id="editCategory" class="form-select">
+              <option value="Software & SaaS Subscriptions">Software & SaaS Subscriptions (100%)</option>
+              <option value="Equipment & Hardware">Equipment & Hardware (100% Sec 179)</option>
+              <option value="Contract Labor & Subcontractors">Contract Labor & Subcontractors (100%)</option>
+              <option value="Meals & Client Entertainment">Meals & Client Entertainment (50%)</option>
+              <option value="Travel & Transportation">Travel & Transportation (100%)</option>
+              <option value="Office Supplies & Rent">Office Supplies & Rent (100%)</option>
+              <option value="Advertising & Marketing">Advertising & Marketing (100%)</option>
+              <option value="Legal & Professional Services">Legal & Professional Services (100%)</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="cancelModalBtn">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>LedgerZero AI • Built for the Hacktoberfest Open-Source AI Side Hustle Challenge • Powered by Gemma 2 & Llama 3.2</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

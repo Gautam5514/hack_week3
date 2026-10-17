@@ -1,0 +1,24 @@
+WeWork Operations LLC
+Invoice #WW-2026-OCT-8812
+Location: 44 Montgomery St, San Francisco, CA 94104
+Member: Gautam Pandit (Freelance AI Engineer)
+Account ID: WE-994821
+
+Billing Cycle: 2026-10-01 to 2026-10-31
+Invoice Date: 2026-10-01
+Payment Date: 2026-10-01
+
+Description                                        Amount
+---------------------------------------------------------
+Dedicated Desk Membership (Floor 14)              $450.00
+High-Speed Fiber Internet & Conference Room Pkg    $50.00
+Mail Handling & Dedicated Business Address         $45.00
+---------------------------------------------------------
+Subtotal:                                         $545.00
+Municipal Facility Fee / Tax (0.00%):               $0.00
+---------------------------------------------------------
+TOTAL PAID:                                       $545.00
+
+Payment Method: ACH Direct Debit (Chase *1192)
+Status: Paid in Full
+Tax Deduction Line: Schedule C Line 20b (Rent for Business Property)

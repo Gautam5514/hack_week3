@@ -1,0 +1,288 @@
+[
+  {
+    "id": "sample_invoice_dev_consulting",
+    "filename": "invoice_dev_consulting.txt",
+    "raw_text_preview": "INVOICE #INV-2026-9481\nISSUED BY: Apex Software Architecture LLC\nBILLED TO: FinTech Innovations Group Inc.\nContract: Independent Contractor Agreement #882-B (Strict NDA)",
+    "vendor": "Apex Software Architecture LLC",
+    "client_name": "FinTech Innovations Group Inc.",
+    "date": "2026-10-01",
+    "invoice_number": "INV-2026-9481",
+    "currency": "USD",
+    "currency_symbol": "$",
+    "subtotal": 10500.0,
+    "tax_amount": 0.0,
+    "total": 10500.0,
+    "payment_method": "Wire Transfer / ACH Direct Deposit",
+    "line_items": [
+      {
+        "description": "Senior Backend Architecture (Sprint 14)",
+        "quantity": 40,
+        "unit_price": 150.0,
+        "total": 6000.0
+      },
+      {
+        "description": "Distributed Database Migration Optimization",
+        "quantity": 20,
+        "unit_price": 150.0,
+        "total": 3000.0
+      },
+      {
+        "description": "Security Audit & Zero-Trust Review",
+        "quantity": 10,
+        "unit_price": 150.0,
+        "total": 1500.0
+      }
+    ],
+    "confidence_score": 0.98,
+    "inference_source": "Local Open-Weight Model (Gemma 2 / Llama 3.2)",
+    "tax_categorization": {
+      "category": "Contract Labor & Subcontractors",
+      "schedule_c_line": "Line 11 (Contract Labor)",
+      "deductible_percentage": 100,
+      "deductible_amount": 10500.0,
+      "estimated_tax_savings": 2625.0,
+      "tax_bracket_assumed": "25%",
+      "description": "Payments to external freelancers, contractors, and specialized service providers",
+      "is_deductible": true
+    },
+    "validation": {
+      "isValid": true,
+      "isDuplicate": false,
+      "duplicateOfId": null,
+      "warnings": [
+        "High-value transaction (> $5,000). IRS guidelines recommend keeping explicit proof of payment and contracts for large equipment or contractor write-offs."
+      ],
+      "errors": [],
+      "auditScore": 85,
+      "auditStatus": "IRS Audit Ready"
+    },
+    "createdAt": "2026-10-15T10:00:00.000Z",
+    "updatedAt": "2026-10-15T10:00:00.000Z"
+  },
+  {
+    "id": "sample_receipt_apple_hardware",
+    "filename": "receipt_apple_hardware.txt",
+    "raw_text_preview": "Apple Store - Union Square\nOrder / Receipt Number: W9928104812\nDate: 2026-10-10\n16-inch MacBook Pro - Space Black: $3,499.00",
+    "vendor": "Apple",
+    "client_name": "N/A",
+    "date": "2026-10-10",
+    "invoice_number": "W9928104812",
+    "currency": "USD",
+    "currency_symbol": "$",
+    "subtotal": 3967.0,
+    "tax_amount": 342.15,
+    "total": 4309.15,
+    "payment_method": "American Express",
+    "line_items": [
+      {
+        "description": "16-inch MacBook Pro - Space Black M4 Max",
+        "quantity": 1,
+        "unit_price": 3499.0,
+        "total": 3499.0
+      },
+      {
+        "description": "AppleCare+ for 16-inch MacBook Pro",
+        "quantity": 1,
+        "unit_price": 399.0,
+        "total": 399.0
+      },
+      {
+        "description": "Thunderbolt 4 Pro Cable (1.8 m)",
+        "quantity": 1,
+        "unit_price": 69.0,
+        "total": 69.0
+      }
+    ],
+    "confidence_score": 0.98,
+    "inference_source": "Local Open-Weight Model (Gemma 2 / Llama 3.2)",
+    "tax_categorization": {
+      "category": "Equipment & Hardware",
+      "schedule_c_line": "Line 13 (Depreciation) or Section 179 deduction",
+      "deductible_percentage": 100,
+      "deductible_amount": 4309.15,
+      "estimated_tax_savings": 1077.29,
+      "tax_bracket_assumed": "25%",
+      "description": "Computers, monitors, peripherals, audio/video gear used for work",
+      "is_deductible": true
+    },
+    "validation": {
+      "isValid": true,
+      "isDuplicate": false,
+      "duplicateOfId": null,
+      "warnings": [],
+      "errors": [],
+      "auditScore": 100,
+      "auditStatus": "IRS Audit Ready"
+    },
+    "createdAt": "2026-10-15T10:05:00.000Z",
+    "updatedAt": "2026-10-15T10:05:00.000Z"
+  },
+  {
+    "id": "sample_receipt_aws_cloud",
+    "filename": "receipt_aws_cloud.txt",
+    "raw_text_preview": "Amazon Web Services, Inc.\nTax Invoice #INV-AWS-2026-771920\nDate Issued: October 3, 2026\nAmazon Elastic Compute Cloud (EC2): $184.20",
+    "vendor": "AWS",
+    "client_name": "N/A",
+    "date": "2026-10-03",
+    "invoice_number": "INV-AWS-2026-771920",
+    "currency": "USD",
+    "currency_symbol": "$",
+    "subtotal": 372.8,
+    "tax_amount": 31.69,
+    "total": 404.49,
+    "payment_method": "Visa Card",
+    "line_items": [
+      {
+        "description": "Amazon Elastic Compute Cloud (EC2) - c6i.2xlarge us-west-2",
+        "quantity": 1,
+        "unit_price": 184.2,
+        "total": 184.2
+      },
+      {
+        "description": "Amazon Relational Database Service (RDS) PostgreSQL",
+        "quantity": 1,
+        "unit_price": 112.5,
+        "total": 112.5
+      },
+      {
+        "description": "Amazon S3 Storage Tier & CloudFront CDN",
+        "quantity": 1,
+        "unit_price": 57.2,
+        "total": 57.2
+      }
+    ],
+    "confidence_score": 0.98,
+    "inference_source": "Local Open-Weight Model (Gemma 2 / Llama 3.2)",
+    "tax_categorization": {
+      "category": "Software & SaaS Subscriptions",
+      "schedule_c_line": "Line 48 (Other Expenses - Software)",
+      "deductible_percentage": 100,
+      "deductible_amount": 404.49,
+      "estimated_tax_savings": 101.12,
+      "tax_bracket_assumed": "25%",
+      "description": "Cloud hosting, SaaS development tools, AI APIs, project management software",
+      "is_deductible": true
+    },
+    "validation": {
+      "isValid": true,
+      "isDuplicate": false,
+      "duplicateOfId": null,
+      "warnings": [],
+      "errors": [],
+      "auditScore": 100,
+      "auditStatus": "IRS Audit Ready"
+    },
+    "createdAt": "2026-10-15T10:10:00.000Z",
+    "updatedAt": "2026-10-15T10:10:00.000Z"
+  },
+  {
+    "id": "sample_receipt_wework_coworking",
+    "filename": "receipt_wework_coworking.txt",
+    "raw_text_preview": "WeWork Operations LLC\nInvoice #WW-2026-OCT-8812\nBilling Cycle: 2026-10-01 to 2026-10-31\nDedicated Desk Membership: $450.00",
+    "vendor": "WeWork",
+    "client_name": "N/A",
+    "date": "2026-10-01",
+    "invoice_number": "WW-2026-OCT-8812",
+    "currency": "USD",
+    "currency_symbol": "$",
+    "subtotal": 545.0,
+    "tax_amount": 0.0,
+    "total": 545.0,
+    "payment_method": "ACH Direct Debit",
+    "line_items": [
+      {
+        "description": "Dedicated Desk Membership (Floor 14)",
+        "quantity": 1,
+        "unit_price": 450.0,
+        "total": 450.0
+      },
+      {
+        "description": "High-Speed Fiber Internet & Conference Room Pkg",
+        "quantity": 1,
+        "unit_price": 50.0,
+        "total": 50.0
+      },
+      {
+        "description": "Mail Handling & Dedicated Business Address",
+        "quantity": 1,
+        "unit_price": 45.0,
+        "total": 45.0
+      }
+    ],
+    "confidence_score": 0.98,
+    "inference_source": "Local Open-Weight Model (Gemma 2 / Llama 3.2)",
+    "tax_categorization": {
+      "category": "Office Supplies & Rent",
+      "schedule_c_line": "Line 18 (Office Expense) & Line 20b (Rent)",
+      "deductible_percentage": 100,
+      "deductible_amount": 545.0,
+      "estimated_tax_savings": 136.25,
+      "tax_bracket_assumed": "25%",
+      "description": "Coworking membership, physical office supplies, printing, packaging",
+      "is_deductible": true
+    },
+    "validation": {
+      "isValid": true,
+      "isDuplicate": false,
+      "duplicateOfId": null,
+      "warnings": [],
+      "errors": [],
+      "auditScore": 100,
+      "auditStatus": "IRS Audit Ready"
+    },
+    "createdAt": "2026-10-15T10:15:00.000Z",
+    "updatedAt": "2026-10-15T10:15:00.000Z"
+  },
+  {
+    "id": "sample_receipt_coffee_client_meeting",
+    "filename": "receipt_coffee_client_meeting.txt",
+    "raw_text_preview": "STARBUCKS STORE #10492\nReceipt #SB-2026-44019\nDate: 2026-10-09\nClient Project Discussion: Q4 Sprint Planning Meeting",
+    "vendor": "Starbucks",
+    "client_name": "N/A",
+    "date": "2026-10-09",
+    "invoice_number": "SB-2026-44019",
+    "currency": "USD",
+    "currency_symbol": "$",
+    "subtotal": 22.8,
+    "tax_amount": 1.97,
+    "total": 28.77,
+    "payment_method": "Apple Pay",
+    "line_items": [
+      {
+        "description": "Grande Caramel Macchiato & Cold Brew",
+        "quantity": 2,
+        "unit_price": 12.1,
+        "total": 12.1
+      },
+      {
+        "description": "Breakfast Sandwiches & Croissant",
+        "quantity": 2,
+        "unit_price": 10.7,
+        "total": 10.7
+      }
+    ],
+    "confidence_score": 0.98,
+    "inference_source": "Local Open-Weight Model (Gemma 2 / Llama 3.2)",
+    "tax_categorization": {
+      "category": "Meals & Client Entertainment",
+      "schedule_c_line": "Line 24b (Deductible Meals)",
+      "deductible_percentage": 50,
+      "deductible_amount": 14.39,
+      "estimated_tax_savings": 3.6,
+      "tax_bracket_assumed": "25%",
+      "description": "Business meals with clients, partners, or during work travel",
+      "is_deductible": true
+    },
+    "validation": {
+      "isValid": true,
+      "isDuplicate": false,
+      "duplicateOfId": null,
+      "warnings": [],
+      "errors": [],
+      "auditScore": 100,
+      "auditStatus": "IRS Audit Ready"
+    },
+    "createdAt": "2026-10-15T10:20:00.000Z",
+    "updatedAt": "2026-10-15T10:20:00.000Z"
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "appName": "LedgerZero AI",
+  "version": "1.2.0",
+  "port": 3030,
+  "inference": {
+    "defaultProvider": "ollama",
+    "ollamaHost": "127.0.0.1",
+    "ollamaPort": 11434,
+    "defaultModel": "gemma2:2b",
+    "supportedModels": [
+      "gemma2:2b",
+      "gemma2:9b",
+      "llama3.2:latest",
+      "llama3.2:1b",
+      "llama3.2:3b",
+      "qwen2.5:7b",
+      "qwen2.5:14b",
+      "mistral:7b",
+      "phi3:mini"
+    ],
+    "fallbackToHeuristic": true
+  },
+  "tax": {
+    "defaultEffectiveBracket": 0.25,
+    "scheduleCSupported": true,
+    "strictAuditChecking": true
+  },
+  "privacy": {
+    "airGappedMode": true,
+    "blockOutboundTelemetry": true,
+    "localStoragePath": "./data/documents.json"
+  }
+}
